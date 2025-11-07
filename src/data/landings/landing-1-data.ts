@@ -4,6 +4,7 @@ import type { LandingPageData } from "../types";
 export const landingPageData: LandingPageData = {
   id: "landing-1",
   metaTitle: "book",
+  pixelIdentifier: "CAT_BOOK_LANDING_1",
   heroSection: {
     title: "Adventures of cat",
     subtitle: "for children 3+",

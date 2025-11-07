@@ -46,6 +46,7 @@ export interface FooterData {
 export interface LandingPageData {
   id: string;
   metaTitle: string;
+  pixelIdentifier: string; // Для ідентифікації в аналітиці (Lead Event)
 
   heroSection: HeroSectionData;
   benefitsSection: BenefitsSectionData;
