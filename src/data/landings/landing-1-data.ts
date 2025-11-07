@@ -1,0 +1,105 @@
+//src/data/landings/landing-1-data.ts
+import type { LandingPageData } from "../types";
+
+export const landingPageData: LandingPageData = {
+  id: "landing-1",
+  metaTitle: "book",
+  heroSection: {
+    title: "Adventures of cat",
+    subtitle: "for children 3+",
+    callToActionButtonText: "get it!",
+    callToActionLink: "#lead-form",
+  },
+  benefitsSection: {
+    title: "Benefits to get it",
+    items: [
+      {
+        id: 1,
+        icon: "/src/assets/icons/check-mark.svg",
+        altText: "happyness",
+        title: "happyness",
+        description: "your child will be happy to listen about this cat",
+      },
+      {
+        id: 2,
+        icon: "/src/assets/icons/check-mark.svg",
+        altText: "bueatiful",
+        title: "brightnes",
+        description: "bright illustrations attend attention of you child",
+      },
+      {
+        id: 3,
+        icon: "/src/assets/icons/check-mark.svg",
+        altText: "car",
+        title: "fast delivery",
+        description: "just click and book ready to delivery",
+      },
+      {
+        id: 4,
+        icon: "/src/assets/icons/check-mark.svg",
+        altText: "green least",
+        title: "eco friendly",
+        description: "book made from second using paper",
+      },
+      {
+        id: 5,
+        icon: "/src/assets/icons/check-mark.svg",
+        altText: "dollar",
+        title: "low price",
+        description: "our price lower than others",
+      },
+    ],
+  },
+  reviewSection: {
+    title: "Reviews from that who baught",
+    reviews: [
+      {
+        id: 1,
+        avatar: "/src/assets/images/some_avatar.svg",
+        altText: "avatar",
+        name: "Peter",
+        reviewText: "very interesting book, my child happy",
+        rating: 5,
+      },
+      {
+        id: 2,
+        avatar: "/src/assets/images/some_avatar.svg",
+        altText: "avatar",
+        name: "Nike",
+        reviewText: "very interesting book, my child happy",
+        rating: 5,
+      },
+      {
+        id: 3,
+        avatar: "/src/assets/images/some_avatar.svg",
+        altText: "avatar",
+        name: "Bobe",
+        reviewText: "very interesting book, my child happy",
+        rating: 5,
+      },
+      {
+        id: 4,
+        avatar: "/src/assets/images/some_avatar.svg",
+        altText: "avatar",
+        name: "Smith",
+        reviewText: "very interesting book, my child happy",
+        rating: 5,
+      },
+      {
+        id: 5,
+        avatar: "/src/assets/images/some_avatar.svg",
+        altText: "avatar",
+        name: "Olga",
+        reviewText: "very interesting book, my child happy",
+        rating: 5,
+      },
+    ],
+  },
+  footer: {
+    logoUrl: "/src/assets/logos/logo_1.svg",
+    altText: "storyby",
+    address: "Ukraine, Kyiv",
+    email: "mailto:support@example.com",
+    phoneNumber: "tel:+380441112233",
+  },
+};
