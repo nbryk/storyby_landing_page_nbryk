@@ -3,7 +3,9 @@
 import React from "react";
 import type { LandingPageData } from "../data/types";
 import { BannerTemplate } from "./BannerTemplate";
-// ... інші імпорти
+import { BenefitsTemplate } from "./BenefitsTemplate";
+import { ReviewsTemplate } from "./ReviewsTemplate";
+import { FooterTemplate } from "./FooterTemplate";
 
 interface LandingStructureProps {
   data: LandingPageData;
@@ -20,11 +22,14 @@ const LandingStructure: React.FC<LandingStructureProps> = ({ data }) => {
       {/* ... інші шаблони секцій ... */}
 
       {/* Секція переваг */}
+      <BenefitsTemplate data={data.benefitsSection} />
       {/* Секція відгуків */}
-      {/* <FooterTemplate data={data.footer} /> */}
+      <ReviewsTemplate data={data.reviewSection} />
 
       {/* Цей елемент потрібен для нашого якоря '#lead-form' */}
       <div id="lead-form" className="h-4"></div>
+
+      <FooterTemplate data={data.footer} />
     </div>
   );
 };

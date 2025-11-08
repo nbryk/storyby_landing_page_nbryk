@@ -61,6 +61,7 @@ export const landingPageData: LandingPageData = {
         name: "Peter",
         reviewText: "very interesting book, my child happy",
         rating: 5,
+        date: "25-07-2025",
       },
       {
         id: 2,
@@ -69,6 +70,7 @@ export const landingPageData: LandingPageData = {
         name: "Nike",
         reviewText: "very interesting book, my child happy",
         rating: 5,
+        date: "21-05-2025",
       },
       {
         id: 3,
@@ -77,6 +79,7 @@ export const landingPageData: LandingPageData = {
         name: "Bobe",
         reviewText: "very interesting book, my child happy",
         rating: 5,
+        date: "21-05-2025",
       },
       {
         id: 4,
@@ -85,6 +88,7 @@ export const landingPageData: LandingPageData = {
         name: "Smith",
         reviewText: "very interesting book, my child happy",
         rating: 5,
+        date: "21-05-2025",
       },
       {
         id: 5,
@@ -93,6 +97,7 @@ export const landingPageData: LandingPageData = {
         name: "Olga",
         reviewText: "very interesting book, my child happy",
         rating: 5,
+        date: "21-05-2025",
       },
     ],
   },

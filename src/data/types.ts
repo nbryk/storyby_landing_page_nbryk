@@ -14,7 +14,8 @@ export interface ReviewItem {
   altText: string;
   name: string;
   reviewText: string;
-  rating?: number;
+  rating: number;
+  date: string;
 }
 
 export interface HeroSectionData {
