@@ -6,6 +6,7 @@ import { BannerTemplate } from "./BannerTemplate";
 import { BenefitsTemplate } from "./BenefitsTemplate";
 import { ReviewsTemplate } from "./ReviewsTemplate";
 import { FooterTemplate } from "./FooterTemplate";
+import { ScrollReveal } from "../components/ScrollReveal";
 
 interface LandingStructureProps {
   data: LandingPageData;
@@ -19,17 +20,22 @@ const LandingStructure: React.FC<LandingStructureProps> = ({ data }) => {
         pixelIdentifier={data.pixelIdentifier}
       />
 
-      {/* ... інші шаблони секцій ... */}
-
       {/* Секція переваг */}
-      <BenefitsTemplate data={data.benefitsSection} />
+      <ScrollReveal>
+        <BenefitsTemplate data={data.benefitsSection} />
+      </ScrollReveal>
+
       {/* Секція відгуків */}
-      <ReviewsTemplate data={data.reviewSection} />
+      <ScrollReveal delay={150}>
+        <ReviewsTemplate data={data.reviewSection} />
+      </ScrollReveal>
 
       {/* Цей елемент потрібен для нашого якоря '#lead-form' */}
       <div id="lead-form" className="h-4"></div>
 
-      <FooterTemplate data={data.footer} />
+      <ScrollReveal>
+        <FooterTemplate data={data.footer} />
+      </ScrollReveal>
     </div>
   );
 };

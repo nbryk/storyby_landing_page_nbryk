@@ -41,13 +41,12 @@ export interface FooterData {
   address: string;
   email: string;
   phoneNumber: string;
-  // Можна додати: socialLinks: { icon: string, url: string }[]
 }
 
 export interface LandingPageData {
   id: string;
   metaTitle: string;
-  pixelIdentifier: string; // Для ідентифікації в аналітиці (Lead Event)
+  pixelIdentifier: string;
 
   heroSection: HeroSectionData;
   benefitsSection: BenefitsSectionData;

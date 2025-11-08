@@ -15,7 +15,7 @@ export const BannerTemplate: React.FC<BannerTemplateProps> = ({
   return (
     <section
       className={`
-      h-[80vh] flex flex-col items-center justify-center
+      h-screen flex flex-col items-center justify-center
       relative overflow-hidden 
       px-4 sm:px-6 bg-blue-950
     `}
