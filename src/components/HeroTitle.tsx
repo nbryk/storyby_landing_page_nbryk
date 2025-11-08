@@ -1,21 +1,37 @@
 //src/components/HeroTitle.tsx
+import { useEffect, useState } from "react";
+
 interface HeroTitleProps {
   title: string;
   subtitle?: string;
 }
 
 export const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(true);
+  }, []);
+
   return (
     <div className="text-center space-y-4">
-      {/* Плавне з'явлення: opacity-0 на початку, перехід 1000мс, і final state opacity-100 */}
-      <h1 className="text-5xl font-extrabold text-blue-900 animate-fade-in">
+      <h1
+        className={`text-5xl font-extrabold text-blue-700 transition-opacity duration-1500 ${
+          visible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         {title}
       </h1>
 
-      {/* Плавне з'явлення з затримкою */}
-      <p className="text-xl text-indigo-600 animate-fade-in delay-200">
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p
+          className={`text-xl text-indigo-600 transition-opacity duration-1500 delay-300 ${
+            visible ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 };

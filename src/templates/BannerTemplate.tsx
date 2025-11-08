@@ -13,13 +13,22 @@ export const BannerTemplate: React.FC<BannerTemplateProps> = ({
   pixelIdentifier,
 }) => {
   return (
-    <section>
+    <section
+      className={`
+      h-[80vh] flex flex-col items-center justify-center
+      relative overflow-hidden 
+      px-4 sm:px-6 bg-blue-950
+    `}
+    >
       <HeroTitle title={data.title} subtitle={data.subtitle} />
-      <CtaButton
-        text={data.callToActionButtonText}
-        link={data.callToActionLink}
-        title={pixelIdentifier}
-      />
+
+      <div className="mt-8">
+        <CtaButton
+          text={data.callToActionButtonText}
+          link={data.callToActionLink}
+          title={pixelIdentifier}
+        />
+      </div>
     </section>
   );
 };
