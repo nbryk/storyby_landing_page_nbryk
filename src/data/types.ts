@@ -1,5 +1,3 @@
-//src/data/types.ts
-
 export interface BenefitItem {
   id: number;
   icon: string;

@@ -1,4 +1,3 @@
-//src/components/HeroTitle.tsx
 import { useEffect, useState } from "react";
 
 interface HeroTitleProps {

@@ -1,75 +1,79 @@
-"Послідовність розміщення секцій зараз фіксована в LandingStructure.tsx для забезпечення уніфікації та спрощення підтримки. Для підвищення гнучкості можна використовувати підхід з масивом секцій у LandingPageData."
+# 🚀 Проєкт Marketing Landing Pages
 
-# React + TypeScript + Vite
+Це масштабований проєкт для генерації маркетингових лендінгів, побудований на сучасних веб-технологіях.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Використані технології:**
 
-Currently, two official plugins are available:
+- **Фреймворк:** React
+- **Мова:** TypeScript
+- **Збирач:** Vite
+- **Стилі:** TailwindCSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ⚙️ Запуск Проєкту
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Дотримуйтесь наступних кроків, щоб запустити проєкт локально:
 
-## Expanding the ESLint configuration
+1.  **Клонуйте репозиторій:**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+    ```bash
+    git clone [link_for_cloning]
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+2.  **Встановіть залежності:**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    ```bash
+    npm install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+3.  **Запуск у режимі розробки (Development):**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    ```bash
+    npm run dev
+    # Запускає локальний сервер з першим лендінгом (за замовчуванням).
+    ```
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+4.  **Створення статичної збірки (Production):**
+    ```bash
+    npm run build
+    # У створеній папці `dist` можна побачити згенеровані HTML-файли.
+    ```
 
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+---
+
+## 🧱 Архітектура та Масштабування (Multi-Page Application)
+
+Проєкт структурований для підтримки великої кількості лендінгів, де кожен збирається в окремий HTML-файл.
+
+### Основні архітектурні елементи
+
+- **Атомарна структура:** Компоненти організовані за принципом атомарного дизайну (`components/` -> `templates/` -> `LandingStructure`).
+- **Конструктор-збирач:** Файл `src/templates/LandingStructure.tsx` є **універсальним шаблоном**, який рендерить усі секції, отримуючи дані з `src/App.tsx`.
+- **Динамічний завантажувач (`src/App.tsx`):** Обирає, який об'єкт даних (лендінг) рендерити, на основі URL.
+
+### Процес створення нового лендінгу (MPA)
+
+Оскільки Vite використовується в режимі **Multi-Page Application (MPA)**, для додавання нового лендінгу (`landing-N`) необхідно виконати три кроки:
+
+1.  **Створити файл даних:** Додайте об'єкт з даними у `src/data/landings/landing-N-data.ts`.
+2.  **Оновити мапу:** Додайте ключ та значення у `src/data/all-landings-map.ts`.
+3.  **Налаштувати точку входу для Vite:** **Критично важливо!** Створіть HTML-файл-завантажувач (`src/pages/landing-N.html`) та додайте шлях до нього у конфігурації `vite.config.js`.
+
+---
+
+## 💡 Технічні Рішення та Обґрунтування
+
+### Фіксована Послідовність Секцій
+
+Послідовність розміщення секцій зараз **фіксована** в `LandingStructure.tsx` для забезпечення **уніфікації та спрощення підтримки**.
+
+### Обґрунтування Анімації Заголовка (useState/useEffect)
+
+Для анімації `fade-in` заголовка в `HeroTitle.tsx` було використано хуки `useState`/`useEffect` (стан React) замість чистого CSS або інтеграції з Tailwind.
+
+**Причина:** Сучасна конфігурація Tailwind, при роботі з React, іноді **не розпізнає та не генерує CSS для динамічних анімацій** (`@keyframes` або класів, що генеруються JS). Використання `transition-opacity duration-1500` та перемикання станів (`opacity-0` на `opacity-100`) є **необхідним обхідним шляхом**, що гарантує плавний ефект з'явлення при завантаженні сторінки, використовуючи класи, які Tailwind гарантовано бачить.
+
+### Імітація Facebook Pixel
+
+Кнопка заклику до дії (`CtaButton.tsx`) виконує функцію-імітацію **Facebook Pixel** (подія `Lead`). При натисканні на кнопку у консолі браузера виводиться відповідне повідомлення з ідентифікатором лендінгу.

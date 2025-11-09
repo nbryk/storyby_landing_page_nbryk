@@ -1,4 +1,3 @@
-// src/components/Logo.tsx
 interface LogoProps {
   size?: "sm" | "md" | "lg";
   path: string;
@@ -6,15 +5,13 @@ interface LogoProps {
 }
 
 export const Logo: React.FC<LogoProps> = ({ size = "sm", path, altText }) => {
-  // 1. Визначаємо класи Tailwind для кожного розміру
   const sizeClasses = {
-    sm: "w-8 h-8", // Маленький
-    md: "w-12 h-12", // Середній (за замовчуванням)
-    lg: "w-20 h-20", // Великий
+    sm: "w-8 h-8",
+    md: "w-12 h-12",
+    lg: "w-20 h-20",
   };
 
-  // 2. Отримуємо клас на основі пропса size
-  const className = sizeClasses[size] || sizeClasses.md;
+  const className = sizeClasses[size];
 
   return (
     <img src={path} alt={altText} className={`block mx-auto ${className}`} />

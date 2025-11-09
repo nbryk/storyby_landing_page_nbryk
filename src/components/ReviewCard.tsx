@@ -1,4 +1,3 @@
-// src/components/ReviewCard.tsx
 import type { ReviewItem } from "../data/types";
 
 export interface ReviewCardProps {

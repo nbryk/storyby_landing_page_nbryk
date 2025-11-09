@@ -1,5 +1,3 @@
-// src/templates/LandingStructure.tsx
-
 import React from "react";
 import type { LandingPageData } from "../data/types";
 import { BannerTemplate } from "./BannerTemplate";
@@ -15,23 +13,25 @@ interface LandingStructureProps {
 const LandingStructure: React.FC<LandingStructureProps> = ({ data }) => {
   return (
     <div className="landing-wrapper min-h-screen font-sans">
-      <BannerTemplate
-        data={data.heroSection}
-        pixelIdentifier={data.pixelIdentifier}
-      />
+      <header>
+        <BannerTemplate
+          data={data.heroSection}
+          pixelIdentifier={data.pixelIdentifier}
+        />
+      </header>
 
-      {/* Секція переваг */}
-      <ScrollReveal>
-        <BenefitsTemplate data={data.benefitsSection} />
-      </ScrollReveal>
+      <main>
+        <ScrollReveal>
+          <BenefitsTemplate data={data.benefitsSection} />
+        </ScrollReveal>
 
-      {/* Секція відгуків */}
-      <ScrollReveal delay={150}>
-        <ReviewsTemplate data={data.reviewSection} />
-      </ScrollReveal>
+        <ScrollReveal delay={150}>
+          <ReviewsTemplate data={data.reviewSection} />
+        </ScrollReveal>
 
-      {/* Цей елемент потрібен для нашого якоря '#lead-form' */}
-      <div id="lead-form" className="h-4"></div>
+        {/* This element is needed for our '#lead-form' anchor */}
+        <div id="lead-form" className="h-4"></div>
+      </main>
 
       <ScrollReveal>
         <FooterTemplate data={data.footer} />

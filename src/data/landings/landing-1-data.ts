@@ -1,4 +1,3 @@
-//src/data/landings/landing-1-data.ts
 import type { LandingPageData } from "../types";
 
 export const landingPageData: LandingPageData = {

@@ -1,4 +1,3 @@
-//src/templates/BannerTemplate.tsx
 import { CtaButton } from "../components/CtaButton";
 import { HeroTitle } from "../components/HeroTitle";
 import type { HeroSectionData } from "../data/types";
@@ -15,10 +14,14 @@ export const BannerTemplate: React.FC<BannerTemplateProps> = ({
   return (
     <section
       className={`
-      h-screen flex flex-col items-center justify-center
-      relative overflow-hidden 
-      px-4 sm:px-6 bg-blue-950
-    `}
+        h-screen
+       bg-blue-950
+
+        flex flex-col items-center justify-center
+
+        relative overflow-hidden 
+        px-4 sm:px-6 
+      `}
     >
       <HeroTitle title={data.title} subtitle={data.subtitle} />
 
